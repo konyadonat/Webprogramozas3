@@ -13,6 +13,7 @@ class WineType extends Model
         'type'
     ];
 
+    protected $table = 'winetypes';
     public function wineTypes() {
         return $this->hasMany(Wine::class);
     }
