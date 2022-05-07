@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public function places() {
+        return $this->hasMany(Place::class);
+    }
 }
