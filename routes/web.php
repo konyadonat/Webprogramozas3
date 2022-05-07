@@ -22,3 +22,9 @@ Route::post('/addNewPlace', [Controllers\PlaceController::class,'store']);
 
 Route::get('/addNewGrape', [Controllers\GrapeController::class,'create'])->name('grape.create');
 Route::post('/addNewGrape', [Controllers\GrapeController::class,'store']);
+
+Route::get('/addNewWineType', [Controllers\WineTypeController::class,'create'])->name('winetype.create');
+Route::post('/addNewWineType', [Controllers\WineTypeController::class,'store']);
+
+Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
+Route::post('/addNewWine', [Controllers\WineController::class,'store']);
