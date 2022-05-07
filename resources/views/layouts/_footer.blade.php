@@ -6,5 +6,7 @@
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
     </ul>
-    <p class="text-center text-muted">© 2022 Kónya Donát</p>
-  </footer>
+    <ul class="nav justify-content-center">
+    <li><a href="https://github.com/konyadonat" target="_blank">Github</a></li>
+  </ul>
+</footer>
