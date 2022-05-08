@@ -50,7 +50,7 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        dd($place);
+        return view('place.show')->with(["place" => $place]);
     }
 
     /**
