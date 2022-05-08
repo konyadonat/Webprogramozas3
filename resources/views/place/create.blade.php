@@ -7,7 +7,7 @@
             @csrf
             <div class="d-flex align-items-center mb-3">
                 <h3 class="display-3">{{ __('Add new place') }}</h3>
-                <button class="ms-auto btn btn-primary">Add new place</button>
+                <button class="ms-auto btn btn-primary">{{__('Add new place')}}</button>
             </div>
 
             <div class="row">
