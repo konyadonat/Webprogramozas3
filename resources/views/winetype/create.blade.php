@@ -15,10 +15,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="winetype">{{ __('Wine type') }}</label>
-                                <input type="text" class="form-control {{ $errors->has('winetype') ? ' is-invalid' : '' }}" id="winetype" placeholder="Example wine type" name="winetype" value="{{old('winetype')}}">
-                                @if ($errors->has('winetype'))
-                                    <p class="invalid-feedback">{{ $errors->first('winetype') }}</p>
+                                <label for="type">{{ __('Wine type') }}</label>
+                                <input type="text" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}" id="type" placeholder="Example wine type" name="type" value="{{old('type')}}">
+                                @if ($errors->has('type'))
+                                    <p class="invalid-feedback">{{ $errors->first('type') }}</p>
                                 @endif
                             </div>
                         </div>
