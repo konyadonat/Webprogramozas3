@@ -37,7 +37,14 @@ class GrapeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required|min:4|unique:grapes',
+            'place_id' => 'required|exists:places,id'
+        ]);
+
+        $grape = Grape::create($request->all());
+        return redirect()->route('grape.details',$grape)
+                            -> with('success',__('Grape added successfully!'));
     }
 
     /**
@@ -48,7 +55,7 @@ class GrapeController extends Controller
      */
     public function show(Grape $grape)
     {
-        //
+        return view('grape.show')->with(compact('grape'));
     }
 
     /**
