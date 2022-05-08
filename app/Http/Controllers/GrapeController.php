@@ -38,10 +38,14 @@ class GrapeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type' => 'required|min:4|unique:grapes',
+            'type' => 'required|min:4|unique:grapes,place_id',
             'place_id' => 'required|exists:places,id'
         ]);
-
+        if(Grape::where(['type'=> $request->type,'place_id'=> $request->place_id])->exists())
+        {
+            return redirect()->route('grape.create')
+                ->with('error',__('This exact kind of grape is already present!'));
+        }
         $grape = Grape::create($request->all());
         return redirect()->route('grape.details',$grape)
                             -> with('success',__('Grape added successfully!'));
