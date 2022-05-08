@@ -23,6 +23,7 @@ Route::get('/place/{place}', [Controllers\PlaceController::class,'show'])->name(
 
 Route::get('/addNewGrape', [Controllers\GrapeController::class,'create'])->name('grape.create');
 Route::post('/addNewGrape', [Controllers\GrapeController::class,'store']);
+Route::get('/grape/{grape}', [Controllers\GrapeController::class,'show'])->name('grape.details');
 
 Route::get('/addNewWineType', [Controllers\WineTypeController::class,'create'])->name('winetype.create');
 Route::post('/addNewWineType', [Controllers\WineTypeController::class,'store']);
