@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('grapes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('place_id');
-            $table->string('type')->unique();
+            $table->string('type');
             $table->timestamps();
         });
     }
