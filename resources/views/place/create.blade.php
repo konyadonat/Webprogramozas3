@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name">{{ __('Name') }}</label>
-                                <textarea class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name">{{ old('name') }}</textarea>
+                                <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" placeholder="Example name" name="name" value="{{old('name')}}">
                                 @if ($errors->has('name'))
                                     <p class="invalid-feedback">{{ $errors->first('name') }}</p>
                                 @endif
