@@ -46,4 +46,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Wine::class, 'user_id');
     }
+    //TODO AUTH
 }
