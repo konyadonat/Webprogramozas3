@@ -35,7 +35,12 @@ class WineTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required|min:4|unique:winetypes'
+        ]);
+        $winetype = WineType::create($request->all());
+        return redirect()->route('winetype.details',$winetype)
+                            -> with('success',__('Wine type added successfully!'));
     }
 
     /**
@@ -44,9 +49,9 @@ class WineTypeController extends Controller
      * @param  \App\Models\WineType  $wineType
      * @return \Illuminate\Http\Response
      */
-    public function show(WineType $wineType)
+    public function show(WineType $winetype)
     {
-        //
+        return view('winetype.show')->with(["winetype" => $winetype]);
     }
 
     /**
