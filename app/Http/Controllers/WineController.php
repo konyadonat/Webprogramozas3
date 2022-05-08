@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grape;
 use App\Models\Wine;
+use App\Models\WineType;
 use Illuminate\Http\Request;
 
 class WineController extends Controller
@@ -24,8 +26,13 @@ class WineController extends Controller
      */
     public function create()
     {
-        //TODO TO GET ACCES TO OTHER TABLES
-        return view('wine.create');
+        $grapes = Grape::orderBy('type')->get();
+        $winetypes = WineType::orderBy('type')->get();
+
+        return view('wine.create')->with([
+            'grapes' => $grapes,
+            'winetypes' => $winetypes
+        ]);
     }
 
     /**
@@ -39,7 +46,7 @@ class WineController extends Controller
         //TODO AUTH
         //$user = User::first();
 
-        //$user -> wines()->create($request->except('_token'));
+        //$wine = $user -> wines()->create($request->except('_token'));
     }
 
     /**
@@ -50,7 +57,7 @@ class WineController extends Controller
      */
     public function show(Wine $wine)
     {
-        //
+        
     }
 
     /**
