@@ -27,6 +27,7 @@ Route::get('/grape/{grape}', [Controllers\GrapeController::class,'show'])->name(
 
 Route::get('/addNewWineType', [Controllers\WineTypeController::class,'create'])->name('winetype.create');
 Route::post('/addNewWineType', [Controllers\WineTypeController::class,'store']);
+Route::get('/winetype/{winetype}', [Controllers\WineTypeController::class,'show'])->name('winetype.details');
 
 Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
 Route::post('/addNewWine', [Controllers\WineController::class,'store']);
