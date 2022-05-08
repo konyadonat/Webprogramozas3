@@ -35,7 +35,11 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4|unique:places'
+        ]);
+        $place = Place::create($request->all());
+        return redirect()->route('place.details',$place);
     }
 
     /**
@@ -46,7 +50,7 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        //
+        dd($place);
     }
 
     /**
