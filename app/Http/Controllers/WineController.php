@@ -36,7 +36,10 @@ class WineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO AUTH
+        //$user = User::first();
+
+        //$user -> wines()->create($request->except('_token'));
     }
 
     /**
