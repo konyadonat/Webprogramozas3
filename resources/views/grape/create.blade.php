@@ -7,7 +7,7 @@
                 @csrf
                 <div class="d-flex align-items-center mb-3">
                     <h3 class="display-3">{{ __('Add new grape') }}</h3>
-                    <button class="ms-auto btn btn-primary">Add new grape</button>
+                    <button class="ms-auto btn btn-primary">{{__('Add new grape')}}</button>
                 </div>
 
                 <div class="row">
@@ -16,10 +16,11 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="type">{{ __('Type') }}</label>
-                                    <textarea class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}" name="type">{{ old('type') }}</textarea>
-                                    @if ($errors->has('type'))
-                                        <p class="invalid-feedback">{{ $errors->first('type') }}</p>
-                                    @endif
+                                <input type="text" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}" id="type" 
+                                    placeholder="Example type" name="type" value="{{old('type')}}">
+                                @if ($errors->has('type'))
+                                    <p class="invalid-feedback">{{ $errors->first('type') }}</p>
+                                @endif
                                 </div>
                             </div>
                         </div>
