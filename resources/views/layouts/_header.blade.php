@@ -1,11 +1,11 @@
 <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="{{  route('grape.create')}}" class="nav-link">Grapes</a></li>
-        <li class="nav-item"><a href="{{ route('place.index')}}" class="nav-link">Places</a></li>
-        <li class="nav-item"><a href="{{ route('winetype.create')}}" class="nav-link">Wine types</a></li>
-        <li class="nav-item"><a href="{{ route('wine.create')}}" class="nav-link">Wines</a></li>
+        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{{  route('grape.index')}}" class="nav-link">{{__('Grapes')}}</a></li>
+        <li class="nav-item"><a href="{{ route('place.index')}}" class="nav-link">{{__('Places')}}</a></li>
+        <li class="nav-item"><a href="{{ route('winetype.create')}}" class="nav-link">{{__('Wine types')}}</a></li>
+        <li class="nav-item"><a href="{{ route('wine.create')}}" class="nav-link">{{__('Wines')}}</a></li>
       </ul>
 
       @auth
