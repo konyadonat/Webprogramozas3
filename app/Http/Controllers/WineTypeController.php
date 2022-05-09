@@ -40,7 +40,7 @@ class WineTypeController extends Controller
             'type' => 'required|min:4|unique:winetypes'
         ]);
         $winetype = WineType::create($request->all());
-        return redirect()->route('winetype.details',$winetype)
+        return redirect()->route('winetype.index',$winetype)
                             -> with('success',__('Wine type added successfully!'));
     }
 
