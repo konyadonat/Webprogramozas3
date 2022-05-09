@@ -62,7 +62,7 @@ class WineController extends Controller
      */
     public function show(Wine $wine)
     {
-        
+        return view('wine.show')->with(compact('wine'));
     }
 
     /**
