@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/addNewGrape', [Controllers\GrapeController::class,'create'])->name('grape.create');
     Route::post('/addNewGrape', [Controllers\GrapeController::class,'store']);
+    Route::get('/grape/{grape}/edit', [Controllers\GrapeController::class,'edit'])->name('grape.edit');
+    Route::post('/grape/{grape}/edit', [Controllers\GrapeController::class,'update']);
     
 
     Route::get('/addNewWineType', [Controllers\WineTypeController::class,'create'])->name('winetype.create');
