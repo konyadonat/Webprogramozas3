@@ -61,9 +61,9 @@ class WineTypeController extends Controller
      * @param  \App\Models\WineType  $wineType
      * @return \Illuminate\Http\Response
      */
-    public function edit(WineType $wineType)
+    public function edit(WineType $winetype)
     {
-        //
+        return view('winetype.edit')->with(compact('winetype'));
     }
 
     /**
@@ -73,9 +73,15 @@ class WineTypeController extends Controller
      * @param  \App\Models\WineType  $wineType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WineType $wineType)
+    public function update(Request $request, WineType $winetype)
     {
-        //
+        $request->validate([
+            'type' => 'required|min:4|unique:winetypes'
+        ]);
+
+        $winetype->update($request->all());
+
+        return redirect()->route('winetype.edit',$winetype)->with('success',__('Winetype updated successfully!'));
     }
 
     /**
