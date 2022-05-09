@@ -62,7 +62,8 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        //TODO MIGHT DELETE IT WITH UPDATE
+        return view('place.edit')->with(compact('place'));
     }
 
     /**
@@ -74,7 +75,12 @@ class PlaceController extends Controller
      */
     public function update(Request $request, Place $place)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4|unique:places'
+        ]);
+        $place->update($request->all());
+
+        return redirect()->route('place.edit',$place)->with('success',__('Place updated successfully!'));
     }
 
     /**
