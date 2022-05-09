@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Models\Grape;
 use App\Models\Wine;
 use App\Models\WineType;
@@ -45,8 +45,13 @@ class WineController extends Controller
     {
         //TODO AUTH
         //$user = User::first();
-
+        
+        $wine = Auth::user()->wines()->create($request->except('_token'));
         //$wine = $user -> wines()->create($request->except('_token'));
+
+        return redirect()
+            ->route('wine.details',$wine)
+            ->with('success',__('Wine added successfully'));
     }
 
     /**
