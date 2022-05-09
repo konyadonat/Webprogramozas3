@@ -39,9 +39,12 @@ Route::get('/places', [Controllers\PlaceController::class,'index'])->name('place
 Route::get('/place/{place}', [Controllers\PlaceController::class,'show'])->name('place.details');
 
 Route::get('/grape/{grape}', [Controllers\GrapeController::class,'show'])->name('grape.details');
+Route::get('/grapes', [Controllers\GrapeController::class,'index'])->name('grape.index');
 
 Route::get('/winetype/{winetype}', [Controllers\WineTypeController::class,'show'])->name('winetype.details');
+Route::get('/winetypes', [Controllers\WineTypeController::class,'index'])->name('winetype.index');
 
 Route::get('/wine/{wine}', [Controllers\WineController::class,'show'])->name('wine.details');
+Route::get('/wines', [Controllers\WineController::class,'index'])->name('wine.index');
 
 require __DIR__.'/auth.php';
