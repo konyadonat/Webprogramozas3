@@ -25,8 +25,4 @@ class Wine extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    //TODO
-    
-
-
 }

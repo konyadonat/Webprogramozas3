@@ -43,8 +43,6 @@ class WineController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO AUTH
-        //$user = User::first();
         $request->validate([
             'name' => 'required|min:4',
             'grape_id' => 'required|exists:grapes,id',
