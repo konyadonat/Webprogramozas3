@@ -27,9 +27,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/addNewGrape', [Controllers\GrapeController::class,'create'])->name('grape.create');
     Route::post('/addNewGrape', [Controllers\GrapeController::class,'store']);
+    
 
     Route::get('/addNewWineType', [Controllers\WineTypeController::class,'create'])->name('winetype.create');
     Route::post('/addNewWineType', [Controllers\WineTypeController::class,'store']);
+    Route::get('/winetype/{winetype}/edit', [Controllers\WineTypeController::class,'edit'])->name('winetype.edit');
+    Route::post('/winetype/{winetype}/edit', [Controllers\WineTypeController::class,'update']);
 
     Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
     Route::post('/addNewWine', [Controllers\WineController::class,'store']);
