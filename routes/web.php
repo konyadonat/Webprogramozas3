@@ -21,6 +21,8 @@ Route::get('/', [Controllers\HomeController::class,'index']) -> name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/addNewPlace', [Controllers\PlaceController::class,'create'])->name('place.create');
     Route::post('/addNewPlace', [Controllers\PlaceController::class,'store']);
+    Route::get('/place/{place}/edit', [Controllers\PlaceController::class,'edit'])->name('place.edit');
+    Route::post('/place/{place}/edit', [Controllers\PlaceController::class,'update']);
 
     Route::get('/addNewGrape', [Controllers\GrapeController::class,'create'])->name('grape.create');
     Route::post('/addNewGrape', [Controllers\GrapeController::class,'store']);
@@ -34,12 +36,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/place/{place}', [Controllers\PlaceController::class,'show'])->name('place.details');
 
-
 Route::get('/grape/{grape}', [Controllers\GrapeController::class,'show'])->name('grape.details');
 
-
 Route::get('/winetype/{winetype}', [Controllers\WineTypeController::class,'show'])->name('winetype.details');
-
 
 Route::get('/wine/{wine}', [Controllers\WineController::class,'show'])->name('wine.details');
 
