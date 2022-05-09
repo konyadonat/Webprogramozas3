@@ -19,7 +19,7 @@ Route::get('/', [Controllers\HomeController::class,'index']) -> name('home');
 
 
 Route::middleware(['auth'])->group(function () {
-    //Route::post('/place/{place}/destroy', [Controllers\PlaceController::class,'destroy'])->name('place.destroy');
+    
     Route::get('/addNewPlace', [Controllers\PlaceController::class,'create'])->name('place.create');
     Route::post('/addNewPlace', [Controllers\PlaceController::class,'store']);
     Route::get('/place/{place}/edit', [Controllers\PlaceController::class,'edit'])->name('place.edit');
@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/addNewWine', [Controllers\WineController::class,'store']);
     Route::get('/wine/{wine}/edit', [Controllers\WineController::class,'edit'])->name('wine.edit');
     Route::post('/wine/{wine}/edit', [Controllers\WineController::class,'update']);
+
+    Route::post('/wine/{wine}/destroy', [Controllers\WineController::class,'destroy'])->name('wine.destroy');
 });
 
 Route::get('/places', [Controllers\PlaceController::class,'index'])->name('place.index');
