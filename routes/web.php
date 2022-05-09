@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
     Route::post('/addNewWine', [Controllers\WineController::class,'store']);
 });
-
+Route::get('/places', [Controllers\PlaceController::class,'index']);
 Route::get('/place/{place}', [Controllers\PlaceController::class,'show'])->name('place.details');
 
 Route::get('/grape/{grape}', [Controllers\GrapeController::class,'show'])->name('grape.details');
