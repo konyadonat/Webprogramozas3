@@ -28,7 +28,7 @@
                         @endif
                     </div>
                     <div class="d-grid">
-                        <button class="ms-auto btn btn-primary">{{__('Add new type')}}</button>
+                        <button class="ms-auto btn btn-primary">{{__('Add new grape')}}</button>
                     </div>
                 </form>
             </div>
