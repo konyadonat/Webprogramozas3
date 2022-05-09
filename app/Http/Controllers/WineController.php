@@ -16,7 +16,8 @@ class WineController extends Controller
      */
     public function index()
     {
-        //
+        $wine = Wine::orderBy('id')->get();
+        return view('wine.index',with(['wine'=> $wine]));
     }
 
     /**
@@ -82,7 +83,13 @@ class WineController extends Controller
      */
     public function edit(Wine $wine)
     {
-        //
+        $grapes = Grape::orderBy('type')->get();
+        $user = Auth::user();
+        $winetypes = WineType::orderBy('type')->get();
+        return view('wine.edit')->with(['wine' => $wine,
+                                        'grapes' => $grapes,
+                                        'user' => $user,
+                                        'winetypes' => $winetypes]);
     }
 
     /**
@@ -94,7 +101,21 @@ class WineController extends Controller
      */
     public function update(Request $request, Wine $wine)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4',
+            'grape_id' => 'required|exists:grapes,id',
+            'vintage' => 'required',
+            'winetypes_id' => 'required|exists:winetypes,id'
+        ]);
+        if(Wine::where(['name'=> $request->name,'grape_id'=> $request->grape_id,
+                        'vintage' => $request->vintage,'winetypes_id' => $request->winetypes_id])->exists())
+        {
+            return redirect()->route('wine.create')
+                ->with('error',__('This exact kind of wine is already present!'));
+        }
+
+        $wine->update($request->all());
+        return redirect()->route('wine.edit',$wine)->with('success',__('Wine updated successfully!'));
     }
 
     /**
@@ -105,6 +126,8 @@ class WineController extends Controller
      */
     public function destroy(Wine $wine)
     {
-        //
+        $wine->delete();
+
+        return redirect()->route('wine.index')->with('success',__($wine->name.' has been deleted!'));
     }
 }
