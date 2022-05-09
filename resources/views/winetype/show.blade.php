@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>{{ $winetype->type}}</h1>
+    <h1 class="text-center">{{ __('Winetype: ').$winetype->type}}</h1>
 @endsection

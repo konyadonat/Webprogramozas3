@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>{{ $place->name}}</h1>
+<div class="container">
+    <h1 class="text-center">{{__('Name: ').$place->name}}</h1>
+</div>
 @endsection
