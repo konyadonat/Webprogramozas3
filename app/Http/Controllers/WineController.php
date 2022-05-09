@@ -45,10 +45,21 @@ class WineController extends Controller
     {
         //TODO AUTH
         //$user = User::first();
-        
+        $request->validate([
+            'name' => 'required|min:4',
+            'grape_id' => 'required|exists:grapes,id',
+            'vintage' => 'required',
+            'winetypes_id' => 'required|exists:winetypes,id'
+        ]);
+        if(Wine::where(['name'=> $request->name,'grape_id'=> $request->grape_id,
+                        'vintage' => $request->vintage,'winetypes_id' => $request->winetypes_id])->exists())
+        {
+            return redirect()->route('wine.create')
+                ->with('error',__('This exact kind of wine is already present!'));
+        }
         $wine = Auth::user()->wines()->create($request->except('_token'));
         //$wine = $user -> wines()->create($request->except('_token'));
-
+        
         return redirect()
             ->route('wine.details',$wine)
             ->with('success',__('Wine added successfully'));
