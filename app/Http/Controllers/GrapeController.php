@@ -15,7 +15,8 @@ class GrapeController extends Controller
      */
     public function index()
     {
-        //
+        $grapes = Grape::orderBy('id')->get();
+        return view('grape.index',['grapes' => $grapes]);
     }
 
     /**
@@ -70,7 +71,9 @@ class GrapeController extends Controller
      */
     public function edit(Grape $grape)
     {
-        //
+        $places = Place::orderBy('name')->get();
+        return view('grape.edit')->with(['grape' => $grape,
+                                        'places' => $places]);
     }
 
     /**
@@ -82,7 +85,14 @@ class GrapeController extends Controller
      */
     public function update(Request $request, Grape $grape)
     {
-        //
+        $request->validate([
+            'type' => 'required|min:4|unique:grapes,place_id',
+            'place_id' => 'required|exists:places,id'
+        ]);
+
+        $grape->update($request->all());
+
+        return redirect()->route('grape.edit',$grape)->with('success',__('Grape updated successfully!'));
     }
 
     /**
