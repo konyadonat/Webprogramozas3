@@ -32,3 +32,5 @@ Route::get('/winetype/{winetype}', [Controllers\WineTypeController::class,'show'
 Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
 Route::post('/addNewWine', [Controllers\WineController::class,'store']);
 Route::get('/wine/{wine}', [Controllers\WineController::class,'show'])->name('wine.details');
+
+require __DIR__.'/auth.php';
