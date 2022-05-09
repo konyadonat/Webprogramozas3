@@ -40,7 +40,7 @@ class PlaceController extends Controller
             'name' => 'required|min:4|unique:places'
         ]);
         $place = Place::create($request->all());
-        return redirect()->route('place.details',$place)
+        return redirect()->route('place.index',$place)
                             -> with('success',__('Place added successfully!'));
     }
 
@@ -92,6 +92,6 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        //$place->delete();
     }
 }
