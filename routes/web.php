@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/addNewWine', [Controllers\WineController::class,'create'])->name('wine.create');
     Route::post('/addNewWine', [Controllers\WineController::class,'store']);
+    Route::get('/wine/{wine}/edit', [Controllers\WineController::class,'edit'])->name('wine.edit');
+    Route::post('/wine/{wine}/edit', [Controllers\WineController::class,'update']);
 });
 
 Route::get('/places', [Controllers\PlaceController::class,'index'])->name('place.index');
