@@ -17,7 +17,8 @@ class WineController extends Controller
     public function index()
     {
         $wine = Wine::orderBy('id')->get();
-        return view('wine.index',with(['wine'=> $wine]));
+        $winetypes = WineType::orderBy('id')->get();
+        return view('wine.index',with(['wine'=> $wine,'winetypes'=>$winetypes]));
     }
 
     /**
